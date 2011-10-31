@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 struct {
   int key;
   int data;
@@ -16,6 +19,16 @@ int search(int key) {
     i++;
   }
   return -1; // not found
+}
+
+void add(int key, int data) {
+  if (n >= 100) {
+    fprintf(stderr, "too much data\n");
+    exit(1);
+  }
+  table[n].key  = key;
+  table[n].data = data;
+  n++;
 }
 
 int main(int argc, char *argv[]) {
